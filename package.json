@@ -1,0 +1,24 @@
+{
+  "name": "se_project_report_generation",
+  "version": "1.0.0",
+  "description": "SE LAB Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PraneethEmandi/SE_project_report_generation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/PraneethEmandi/SE_project_report_generation/issues"
+  },
+  "homepage": "https://github.com/PraneethEmandi/SE_project_report_generation#readme",
+  "dependencies": {
+    "@google/generative-ai": "^0.22.0"
+  }
+}
