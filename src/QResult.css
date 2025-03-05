@@ -1,0 +1,22 @@
+.export-buttons{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
+.export-buttons button{
+    font-weight: 300;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+.export-buttons :hover{
+    background-color: rgb(59, 59, 59);
+    transition: ease 0.4s all;
+}
+
+.content{
+    background-color: #f3ebff;
+}
