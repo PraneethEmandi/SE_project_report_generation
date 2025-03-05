@@ -1,0 +1,47 @@
+.navbarr {
+  position: fixed;
+  top:0;
+  left:0;
+  width:97%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: linear-gradient(to right, #E9ECEF, #212529);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbarr .logoo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: 200;
+  padding: 8px 15px;
+  transition: 0.3s ease;
+}
+.nav-links a:hover {
+  color: #c4e2ef;
+}
+
+.login-btn {
+  background: #89cff0;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #333;
+}
