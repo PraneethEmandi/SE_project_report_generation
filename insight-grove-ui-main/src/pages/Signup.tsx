@@ -5,18 +5,19 @@ import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { FaGoogle } from 'react-icons/fa';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from '@/hooks/use-toast';
 
 const Signup = () => {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { emailPasswordSignup, loginWithGoogle } = useAuth();
   const { toast } = useToast();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   
-  const handleSignup = (e: React.FormEvent) => {
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (password !== confirmPassword) {
@@ -28,36 +29,29 @@ const Signup = () => {
       return;
     }
     
-    // Demo signup logic
-    login({
-      id: '3',
-      name: name,
-      email: email,
-    });
-    
-    toast({
-      title: "Account Created",
-      description: "Welcome to the Student Platform!",
-    });
-    
-    navigate('/dashboard');
+    setIsLoading(true);
+    try {
+      await emailPasswordSignup(name, email, password);
+      navigate('/dashboard');
+    } catch (error) {
+      console.error("Signup failed:", error);
+      // Error is already handled in the context
+    } finally {
+      setIsLoading(false);
+    }
   };
   
-  const handleGoogleSignup = () => {
-    // Demo Google signup
-    login({
-      id: '4',
-      name: 'Google User',
-      email: 'google@example.com',
-      photoURL: 'https://randomuser.me/api/portraits/men/1.jpg'
-    });
-    
-    toast({
-      title: "Account Created",
-      description: "Welcome to the Student Platform!",
-    });
-    
-    navigate('/dashboard');
+  const handleGoogleSignup = async () => {
+    setIsLoading(true);
+    try {
+      await loginWithGoogle();
+      navigate('/dashboard');
+    } catch (error) {
+      console.error("Signup failed:", error);
+      // Error is already handled in the context
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -146,7 +140,14 @@ const Signup = () => {
             </div>
 
             <div>
-              <Button type="submit" className="w-full bg-student-600 hover:bg-student-700">
+              <Button 
+                type="submit" 
+                className="w-full bg-student-600 hover:bg-student-700"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-gray-500 border-t-transparent"></div>
+                ) : null}
                 Sign up
               </Button>
             </div>
@@ -165,10 +166,15 @@ const Signup = () => {
             <div className="mt-6">
               <Button
                 onClick={handleGoogleSignup}
+                disabled={isLoading}
                 className="w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50"
                 variant="outline"
               >
-                <FaGoogle className="h-5 w-5 text-red-500 mr-2" />
+                {isLoading ? (
+                  <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-gray-500 border-t-transparent"></div>
+                ) : (
+                  <FaGoogle className="h-5 w-5 text-red-500 mr-2" />
+                )}
                 Sign up with Google
               </Button>
             </div>

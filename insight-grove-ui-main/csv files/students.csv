@@ -1,0 +1,27 @@
+
+roll_number,name,department,section,FA,email,password
+2023CS001,Alex Johnson,Computer Science,A,Dr. Sarah Williams,alex.j@university.edu,hashedPassword123
+2023EE002,Emma Davis,Electrical Engineering,B,Dr. Michael Brown,emma.d@university.edu,hashedPassword456
+2023CS003,John Smith,Computer Science,A,Dr. Sarah Williams,john.s@university.edu,hashedPassword789
+2023ME004,Sarah Chen,Mechanical Engineering,C,Dr. James Wilson,sarah.c@university.edu,hashedPassword101
+2023CE005,Michael Brown,Civil Engineering,B,Dr. Emily Martinez,michael.b@university.edu,hashedPassword102
+2023EE006,Lisa Wong,Electrical Engineering,A,Dr. Michael Brown,lisa.w@university.edu,hashedPassword103
+2023CS007,David Kim,Computer Science,B,Dr. Sarah Williams,david.k@university.edu,hashedPassword104
+2023ME008,Rachel Green,Mechanical Engineering,A,Dr. James Wilson,rachel.g@university.edu,hashedPassword105
+2023CE009,Thomas Anderson,Civil Engineering,C,Dr. Emily Martinez,thomas.a@university.edu,hashedPassword106
+2023CS010,Maria Garcia,Computer Science,A,Dr. Sarah Williams,maria.g@university.edu,hashedPassword107
+2023CS011,Kevin Patel,Computer Science,B,Dr. Robert Taylor,kevin.p@university.edu,hashedPassword108
+2023EE012,Jessica Zhang,Electrical Engineering,C,Dr. Michael Brown,jessica.z@university.edu,hashedPassword109
+2023ME013,Daniel Rodriguez,Mechanical Engineering,A,Dr. James Wilson,daniel.r@university.edu,hashedPassword110
+2023CE014,Sophia Lee,Civil Engineering,B,Dr. Emily Martinez,sophia.l@university.edu,hashedPassword111
+2023CS015,James Wilson,Computer Science,C,Dr. Patricia Lee,james.w@university.edu,hashedPassword112
+2023EE016,Olivia Martinez,Electrical Engineering,A,Dr. Michael Brown,olivia.m@university.edu,hashedPassword113
+2023ME017,Ryan Chen,Mechanical Engineering,B,Dr. Thomas Moore,ryan.c@university.edu,hashedPassword114
+2023CE018,Emily Johnson,Civil Engineering,C,Dr. Emily Martinez,emily.j@university.edu,hashedPassword115
+2023CS019,Benjamin Taylor,Computer Science,A,Dr. Patricia Lee,benjamin.t@university.edu,hashedPassword116
+2023EE020,Natalie Kim,Electrical Engineering,B,Dr. Jennifer White,natalie.k@university.edu,hashedPassword117
+2023CS021,Christopher Lee,Computer Science,C,Dr. Robert Taylor,chris.l@university.edu,hashedPassword118
+2023ME022,Isabella Brown,Mechanical Engineering,A,Dr. Thomas Moore,isabella.b@university.edu,hashedPassword119
+2023CE023,William Davis,Civil Engineering,B,Dr. Jennifer White,william.d@university.edu,hashedPassword120
+2023CS024,Ava Wilson,Computer Science,C,Dr. Patricia Lee,ava.w@university.edu,hashedPassword121
+2023EE025,Ethan Garcia,Electrical Engineering,A,Dr. Michael Brown,ethan.g@university.edu,hashedPassword122

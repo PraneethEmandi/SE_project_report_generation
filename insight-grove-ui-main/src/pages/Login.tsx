@@ -5,48 +5,42 @@ import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { FaGoogle } from 'react-icons/fa';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from '@/hooks/use-toast';
 
 const Login = () => {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { emailPasswordLogin, loginWithGoogle } = useAuth();
   const { toast } = useToast();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
     
-    // Demo login logic
-    login({
-      id: '1',
-      name: 'Demo User',
-      email: email,
-    });
-    
-    toast({
-      title: "Login Successful",
-      description: "Welcome back to the Student Platform!",
-    });
-    
-    navigate('/dashboard');
+    try {
+      await emailPasswordLogin(email, password);
+      navigate('/dashboard');
+    } catch (error) {
+      console.error("Login failed:", error);
+      // Error already handled in the context
+    } finally {
+      setIsLoading(false);
+    }
   };
   
-  const handleGoogleLogin = () => {
-    // Demo Google login
-    login({
-      id: '2',
-      name: 'Google User',
-      email: 'google@example.com',
-      photoURL: 'https://randomuser.me/api/portraits/men/1.jpg'
-    });
-    
-    toast({
-      title: "Google Login Successful",
-      description: "Welcome back to the Student Platform!",
-    });
-    
-    navigate('/dashboard');
+  const handleGoogleLogin = async () => {
+    setIsLoading(true);
+    try {
+      await loginWithGoogle();
+      navigate('/dashboard');
+    } catch (error) {
+      console.error("Login failed:", error);
+      // Error is already handled in the context
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -121,7 +115,14 @@ const Login = () => {
             </div>
 
             <div>
-              <Button type="submit" className="w-full bg-student-600 hover:bg-student-700">
+              <Button 
+                type="submit" 
+                className="w-full bg-student-600 hover:bg-student-700"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-gray-500 border-t-transparent"></div>
+                ) : null}
                 Sign in
               </Button>
             </div>
@@ -140,10 +141,15 @@ const Login = () => {
             <div className="mt-6">
               <Button
                 onClick={handleGoogleLogin}
+                disabled={isLoading}
                 className="w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50"
                 variant="outline"
               >
-                <FaGoogle className="h-5 w-5 text-red-500 mr-2" />
+                {isLoading ? (
+                  <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-gray-500 border-t-transparent"></div>
+                ) : (
+                  <FaGoogle className="h-5 w-5 text-red-500 mr-2" />
+                )}
                 Sign in with Google
               </Button>
             </div>

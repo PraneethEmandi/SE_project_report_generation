@@ -1,0 +1,22 @@
+
+internship_id,student_roll_number,company,role,description,start_date,end_date,location,stipend,offer_letter,approved
+INT001,2023EE002,Power Electronics Corp,Summer Intern,3-month internship in power systems,2024-05-01,2024-07-31,Chicago,3000,offer_letter_url,1
+INT002,2023CS003,Amazon,Software Intern,Backend development internship,2024-06-01,2024-08-31,Seattle,5000,offer_letter_url2,1
+INT003,2023ME004,SpaceX,Engineering Intern,Rocket propulsion systems,2024-05-15,2024-08-15,Los Angeles,4500,offer_letter_url3,1
+INT004,2023CS007,Meta,ML Intern,Machine learning research,2024-06-15,2024-09-15,Menlo Park,5500,offer_letter_url4,1
+INT005,2023CE005,AECOM,Civil Engineering Intern,Infrastructure design,2024-05-01,2024-07-31,New York,3500,offer_letter_url5,1
+INT006,2023CS010,Google,Data Science Intern,AI algorithm development,2024-06-01,2024-08-31,Mountain View,5000,offer_letter_url6,1
+INT007,2023EE006,Siemens,Electrical Systems Intern,Power distribution systems,2024-05-15,2024-08-15,Orlando,3800,offer_letter_url7,1
+INT008,2023ME008,General Motors,Mechanical Design Intern,Vehicle systems design,2024-06-15,2024-09-15,Detroit,4000,offer_letter_url8,1
+INT009,2023CS015,Microsoft,Cloud Services Intern,Azure platform development,2024-05-01,2024-07-31,Redmond,5200,offer_letter_url9,1
+INT010,2023CE009,Jacobs Engineering,Structural Analysis Intern,Building design analysis,2024-06-01,2024-08-31,Dallas,3300,offer_letter_url10,1
+INT011,2023CS011,Netflix,UI/UX Intern,Streaming interface design,2024-05-15,2024-08-15,Los Gatos,5000,offer_letter_url11,1
+INT012,2023EE012,Intel,Chip Design Intern,Processor architecture development,2024-06-15,2024-09-15,Santa Clara,4500,offer_letter_url12,1
+INT013,2023ME013,Boeing,Aerospace Intern,Aircraft systems testing,2024-05-01,2024-07-31,Seattle,4200,offer_letter_url13,1
+INT014,2023CS019,Salesforce,CRM Development Intern,Customer solution development,2024-06-01,2024-08-31,San Francisco,4800,offer_letter_url14,1
+INT015,2023CE014,Fluor,Civil Project Intern,Construction project management,2024-05-15,2024-08-15,Irving,3400,offer_letter_url15,1
+INT016,2023EE016,AMD,Hardware Testing Intern,Processor validation,2024-06-15,2024-09-15,Austin,4300,offer_letter_url16,1
+INT017,2023CS021,Oracle,Database Intern,SQL optimization development,2024-05-01,2024-07-31,Austin,4700,offer_letter_url17,1
+INT018,2023ME017,Tesla,Manufacturing Intern,Production system optimization,2024-06-01,2024-08-31,Fremont,4600,offer_letter_url18,1
+INT019,2023CE018,Skanska,Construction Management Intern,Project coordination and planning,2024-05-15,2024-08-15,New York,3600,offer_letter_url19,1
+INT020,2023CS024,IBM,Quantum Computing Intern,Quantum algorithm research,2024-06-15,2024-09-15,Yorktown Heights,4900,offer_letter_url20,1

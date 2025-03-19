@@ -1,0 +1,21 @@
+admin_id,name,email,password
+ADMIN001,John Smith,john.smith@university.edu,hashed_password_123
+ADMIN002,Sarah Johnson,sarah.j@university.edu,hashed_password_456
+ADMIN003,Michael Davis,m.davis@university.edu,hashed_password_789
+ADMIN004,Emily Wilson,emily.wilson@university.edu,hashed_password_101
+ADMIN005,Robert Taylor,r.taylor@university.edu,hashed_password_202
+ADMIN006,Jennifer Brown,j.brown@university.edu,hashed_password_303
+ADMIN007,David Martinez,d.martinez@university.edu,hashed_password_404
+ADMIN008,Lisa Rodriguez,l.rodriguez@university.edu,hashed_password_505
+ADMIN009,Kevin Thompson,k.thompson@university.edu,hashed_password_606
+ADMIN010,Michelle Lee,michelle.lee@university.edu,hashed_password_707
+ADMIN011,Christopher Moore,c.moore@university.edu,hashed_password_808
+ADMIN012,Amanda Clark,a.clark@university.edu,hashed_password_909
+ADMIN013,Matthew Wright,m.wright@university.edu,hashed_password_010
+ADMIN014,Jessica Harris,j.harris@university.edu,hashed_password_111
+ADMIN015,Daniel Robinson,d.robinson@university.edu,hashed_password_212
+ADMIN016,Nicole Scott,n.scott@university.edu,hashed_password_313
+ADMIN017,William King,w.king@university.edu,hashed_password_414
+ADMIN018,Rachel Green,r.green@university.edu,hashed_password_515
+ADMIN019,Steven Adams,s.adams@university.edu,hashed_password_616
+ADMIN020,Laura Phillips,l.phillips@university.edu,hashed_password_717

@@ -1,0 +1,22 @@
+
+faculty_id,name,email,password
+FAC001,Dr. Sarah Williams,s.williams@university.edu,hashedPassword789
+FAC002,Dr. Michael Brown,m.brown@university.edu,hashedPassword012
+FAC003,Dr. James Wilson,j.wilson@university.edu,hashedPassword345
+FAC004,Dr. Emily Martinez,e.martinez@university.edu,hashedPassword678
+FAC005,Dr. Robert Taylor,r.taylor@university.edu,hashedPassword901
+FAC006,Dr. Patricia Lee,p.lee@university.edu,hashedPassword234
+FAC007,Dr. Thomas Moore,t.moore@university.edu,hashedPassword567
+FAC008,Dr. Jennifer White,j.white@university.edu,hashedPassword890
+FAC009,Dr. David Clark,d.clark@university.edu,hashedPassword123
+FAC010,Dr. Lisa Rodriguez,l.rodriguez@university.edu,hashedPassword456
+FAC011,Dr. Richard Chen,r.chen@university.edu,hashedPassword789
+FAC012,Dr. Elizabeth Kim,e.kim@university.edu,hashedPassword012
+FAC013,Dr. Daniel Johnson,d.johnson@university.edu,hashedPassword345
+FAC014,Dr. Michelle Zhang,m.zhang@university.edu,hashedPassword678
+FAC015,Dr. Christopher Davis,c.davis@university.edu,hashedPassword901
+FAC016,Dr. Amanda Wilson,a.wilson@university.edu,hashedPassword234
+FAC017,Dr. Steven Lee,s.lee@university.edu,hashedPassword567
+FAC018,Dr. Samantha Brown,s.brown@university.edu,hashedPassword890
+FAC019,Dr. Jonathan Garcia,j.garcia@university.edu,hashedPassword123
+FAC020,Dr. Rebecca Martinez,r.martinez@university.edu,hashedPassword456

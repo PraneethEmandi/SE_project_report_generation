@@ -1,0 +1,22 @@
+
+cultural_event_id,student_roll_number,category,event_name,location,date,awards,description,proof,approved
+CUL001,2023EE002,Dance,Annual Cultural Fest,University Auditorium,2024-04-10,Best Choreography,Classical dance performance,performance_video_url,1
+CUL002,2023CS003,Music,Spring Concert,Open Air Theater,2024-03-20,Best Vocalist,Solo singing performance,video_url2,1
+CUL003,2023ME004,Drama,Theater Festival,Drama Hall,2024-05-15,Best Actor,Shakespeare play adaptation,performance_url3,1
+CUL004,2023CE005,Art,Art Exhibition,Gallery Space,2024-04-25,Best Installation,Modern art showcase,gallery_url4,1
+CUL005,2023CS007,Photography,Photo Exhibition,Media Center,2024-03-30,Best Portfolio,Nature photography collection,portfolio_url5,1
+CUL006,2023EE006,Dance,Hip-Hop Battle,Student Center,2024-04-05,Runner Up,Contemporary street dance competition,video_url6,1
+CUL007,2023ME008,Music,Band Competition,Music Hall,2024-03-25,Best Band,Rock band performance,performance_url7,1
+CUL008,2023CS010,Film,Short Film Festival,Cinema Hall,2024-05-20,Best Director,10-minute original film,film_url8,1
+CUL009,2023CE009,Art,Sculpture Exhibition,Art Pavilion,2024-04-15,Creative Award,Clay sculpture collection,gallery_url9,1
+CUL010,2023CS011,Photography,Street Photography Contest,Urban Center,2024-03-15,Best Composition,Urban life photography series,portfolio_url10,1
+CUL011,2023EE012,Dance,Folk Dance Festival,Cultural Center,2024-04-20,First Prize,Traditional folk dance performance,video_url11,1
+CUL012,2023ME013,Music,Classical Music Concert,Concert Hall,2024-03-10,Excellence Award,Indian classical music recital,performance_url12,1
+CUL013,2023CS015,Drama,One-Act Play Contest,Experimental Theater,2024-05-25,Best Script,Original one-act play production,performance_url13,1
+CUL014,2023CE014,Art,Digital Art Show,Technology Gallery,2024-04-30,Innovation Award,Digital media art exhibition,gallery_url14,1
+CUL015,2023CS019,Photography,Wildlife Photography Exhibition,Nature Center,2024-03-05,Best Wildlife Photo,Wildlife conservation photography series,portfolio_url15,1
+CUL016,2023EE016,Dance,International Dance Festival,Global Culture Center,2024-04-25,Cultural Excellence,Multi-cultural dance showcase,video_url16,1
+CUL017,2023ME017,Music,Acappella Competition,Acoustic Hall,2024-03-30,Best Arrangement,Vocal harmony performance without instruments,performance_url17,1
+CUL018,2023CS021,Film,Documentary Festival,Media Arts Center,2024-05-10,Impact Award,Social issue documentary screening,film_url18,1
+CUL019,2023CE018,Art,Traditional Arts Fair,Heritage Hall,2024-04-05,Heritage Award,Traditional craft exhibition,gallery_url19,1
+CUL020,2023CS024,Photography,Portrait Photography Contest,Portrait Studio,2024-03-20,Best Portrait,Character portrait series,portfolio_url20,1
