@@ -1,0 +1,22 @@
+
+event_id,student_roll_number,category,event_name,date,location,awards,description,proof,approved
+TECH001,2023CS001,Hackathon,CodeFest 2024,2024-03-15,University Main Hall,First Place,24-hour coding competition,certificate_url,1
+TECH002,2023CS003,AI Competition,AI Summit 2024,2024-04-20,Innovation Center,Best Innovation,AI model competition,certificate_url2,1
+TECH003,2023EE002,Robotics,RoboWars 2024,2024-05-10,Engineering Block,Runner Up,Robot battle competition,certificate_url3,1
+TECH004,2023CS007,Cybersecurity,SecureHack 2024,2024-06-01,Tech Center,Third Place,Security hackathon,certificate_url4,1
+TECH005,2023ME004,CAD Competition,DesignPro 2024,2024-03-30,Design Lab,Best Design,3D modeling competition,certificate_url5,1
+TECH006,2023CS010,Web Development,WebDev Challenge,2024-04-15,Computer Science Building,First Place,Responsive web design competition,certificate_url6,1
+TECH007,2023EE006,Circuit Design,CircuitCon 2024,2024-05-20,Electronics Lab,Best Innovation,Electronic circuit design contest,certificate_url7,1
+TECH008,2023CS011,Data Science,DataHack 2024,2024-06-10,Analytics Center,Runner Up,Data analysis and visualization challenge,certificate_url8,1
+TECH009,2023ME008,3D Printing,MakerFest 2024,2024-03-25,Mechanical Workshop,Best Prototype,Rapid prototyping competition,certificate_url9,1
+TECH010,2023CE005,Structural Design,BuildTech 2024,2024-04-30,Civil Engineering Department,First Place,Structural modeling competition,certificate_url10,1
+TECH011,2023CS015,Mobile App Development,AppDev 2024,2024-05-15,Innovation Hub,Best UI/UX,Mobile application development challenge,certificate_url11,1
+TECH012,2023EE012,IoT Competition,IoTathon 2024,2024-06-05,Smart Systems Lab,Runner Up,Internet of Things solution development,certificate_url12,1
+TECH013,2023CS019,Game Development,GameJam 2024,2024-03-20,Digital Media Center,Best Game Design,48-hour game creation challenge,certificate_url13,1
+TECH014,2023ME013,Drone Competition,DroneFest 2024,2024-04-25,Aeronautics Lab,First Place,Autonomous drone navigation contest,certificate_url14,1
+TECH015,2023CS021,Blockchain,BlockHack 2024,2024-05-25,Cryptocurrency Lab,Best Implementation,Blockchain solution development,certificate_url15,1
+TECH016,2023EE016,Renewable Energy,GreenTech 2024,2024-06-15,Energy Research Center,Innovation Award,Sustainable energy solutions challenge,certificate_url16,1
+TECH017,2023CS024,Cloud Computing,CloudExpo 2024,2024-03-10,Server Room,Best Architecture,Cloud-based application development,certificate_url17,1
+TECH018,2023ME017,Automotive Design,AutoTech 2024,2024-04-05,Vehicle Lab,Best Design,Vehicle design and simulation competition,certificate_url18,1
+TECH019,2023CS007,Quantum Computing,QuantumByte 2024,2024-05-05,Quantum Center,Best Research,Quantum algorithm development challenge,certificate_url19,1
+TECH020,2023EE025,Embedded Systems,EmbeddedCon 2024,2024-06-20,Microcontroller Lab,First Place,Embedded system design competition,certificate_url20,1

@@ -1,0 +1,22 @@
+
+sport_id,student_roll_number,category,participation_type,location,date,awards,description,proof,approved
+SPT001,2023EE002,Basketball,Team Captain,University Sports Complex,2024-02-20,Tournament Winners,Inter-university basketball championship,trophy_photo_url,1
+SPT002,2023ME004,Athletics,Individual Participant,Olympic Stadium,2024-03-10,Gold Medal,100m Sprint Competition,medal_photo_url,1
+SPT003,2023CS001,Cricket,Team Member,University Cricket Ground,2024-04-15,Runner Up,Inter-college tournament,certificate_url,1
+SPT004,2023CE005,Football,Team Captain,Main Stadium,2024-05-01,Best Player,Annual Sports Meet,trophy_photo_url2,1
+SPT005,2023CS003,Table Tennis,Singles Player,Indoor Sports Hall,2024-03-25,Champion,State Level Competition,medal_photo_url2,1
+SPT006,2023EE006,Volleyball,Team Member,Beach Volleyball Court,2024-02-15,Runner Up,Inter-university tournament,certificate_url2,1
+SPT007,2023ME008,Swimming,Individual Participant,Aquatic Center,2024-03-05,Gold Medal,200m Freestyle Competition,medal_photo_url3,1
+SPT008,2023CS007,Badminton,Doubles Player,Badminton Courts,2024-04-10,Champions,Doubles Tournament,trophy_photo_url3,1
+SPT009,2023CE009,Tennis,Singles Player,Tennis Stadium,2024-05-15,Semi-finalist,University Open Tournament,certificate_url3,1
+SPT010,2023CS010,Chess,Individual Participant,Mind Sports Hall,2024-03-20,Champion,Chess Championship,trophy_photo_url4,1
+SPT011,2023EE012,Hockey,Team Captain,Hockey Field,2024-02-25,Tournament Winners,Regional Hockey League,trophy_photo_url5,1
+SPT012,2023ME013,Gymnastics,Individual Participant,Gymnastics Arena,2024-03-15,Silver Medal,Artistic Gymnastics Competition,medal_photo_url4,1
+SPT013,2023CS011,Basketball,Team Member,University Sports Complex,2024-04-20,Third Place,Inter-department tournament,certificate_url4,1
+SPT014,2023CE014,Rugby,Team Captain,Rugby Field,2024-05-10,Best Team,University Rugby Cup,trophy_photo_url6,1
+SPT015,2023CS015,Squash,Singles Player,Squash Courts,2024-03-30,Champion,National Level Competition,medal_photo_url5,1
+SPT016,2023EE016,Cricket,Team Member,University Cricket Ground,2024-02-10,Tournament Winners,T20 University Challenge,certificate_url5,1
+SPT017,2023ME017,Athletics,Individual Participant,Olympic Stadium,2024-03-01,Bronze Medal,Long Jump Competition,medal_photo_url6,1
+SPT018,2023CS019,Football,Team Member,Main Stadium,2024-04-25,Runner Up,Inter-university tournament,certificate_url6,1
+SPT019,2023CE018,Swimming,Individual Participant,Aquatic Center,2024-05-20,Gold Medal,100m Butterfly Competition,medal_photo_url7,1
+SPT020,2023CS021,Table Tennis,Doubles Player,Indoor Sports Hall,2024-03-10,Champions,Doubles Championship,trophy_photo_url7,1

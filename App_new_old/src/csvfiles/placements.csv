@@ -1,0 +1,22 @@
+
+placement_id,student_roll_number,company,location,role,ctc,description,joining_date,core,hiring_mode,offer_letter,approved
+PL001,2023CS001,Tech Solutions Inc.,San Francisco,Software Engineer,120000,Full-time software engineering position,2024-07-01,1,Remote,offer_letter_url,1
+PL002,2023CS003,Google,Mountain View,Software Developer,150000,Full-stack development role,2024-08-01,1,Hybrid,offer_letter_url2,1
+PL003,2023EE002,Tesla,Austin,Electrical Engineer,110000,Power systems engineering,2024-07-15,1,On-site,offer_letter_url3,1
+PL004,2023ME004,Boeing,Seattle,Mechanical Engineer,95000,Aerospace engineering position,2024-09-01,1,On-site,offer_letter_url4,1
+PL005,2023CS007,Microsoft,Redmond,Software Engineer,135000,Cloud platform development,2024-08-15,1,Hybrid,offer_letter_url5,1
+PL006,2023CS011,Amazon,Seattle,Backend Engineer,140000,AWS cloud services development,2024-07-10,0,Hybrid,offer_letter_url6,1
+PL007,2023EE012,Intel,Santa Clara,Hardware Engineer,105000,Semiconductor design,2024-08-01,1,On-site,offer_letter_url7,1
+PL008,2023CS015,Oracle,Austin,Database Engineer,125000,Cloud infrastructure role,2024-09-15,0,Hybrid,offer_letter_url8,1
+PL009,2023ME013,General Electric,Boston,Design Engineer,90000,Mechanical systems design,2024-07-01,1,On-site,offer_letter_url9,1
+PL010,2023CS019,Adobe,San Jose,Front-end Developer,130000,User experience engineering,2024-08-01,0,Remote,offer_letter_url10,1
+PL011,2023EE016,Qualcomm,San Diego,Electrical Design Engineer,115000,Mobile chip design,2024-07-15,1,On-site,offer_letter_url11,1
+PL012,2023CE014,AECOM,Los Angeles,Structural Engineer,85000,Building design and analysis,2024-09-01,1,Hybrid,offer_letter_url12,1
+PL013,2023CS010,Salesforce,San Francisco,Developer,145000,CRM system development,2024-08-15,0,Remote,offer_letter_url13,1
+PL014,2023ME017,SpaceX,Hawthorne,Propulsion Engineer,110000,Rocket engine design,2024-07-01,1,On-site,offer_letter_url14,1
+PL015,2023CS021,IBM,Austin,Cloud Engineer,125000,Enterprise cloud solutions,2024-08-01,0,Hybrid,offer_letter_url15,1
+PL016,2023EE006,Nvidia,Santa Clara,GPU Engineer,135000,GPU architecture design,2024-09-15,1,On-site,offer_letter_url16,1
+PL017,2023ME022,Ford,Detroit,Automotive Engineer,95000,Drivetrain systems design,2024-07-15,1,On-site,offer_letter_url17,1
+PL018,2023CS024,Twitter,San Francisco,Backend Engineer,130000,Distributed systems development,2024-08-01,0,Hybrid,offer_letter_url18,1
+PL019,2023EE025,Samsung,San Jose,Electronics Engineer,115000,Consumer electronics design,2024-07-01,1,On-site,offer_letter_url19,1
+PL020,2023CE018,Bechtel,Reston,Civil Engineer,90000,Infrastructure project engineering,2024-09-01,1,Hybrid,offer_letter_url20,1

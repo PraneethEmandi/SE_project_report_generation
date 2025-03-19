@@ -1,0 +1,27 @@
+
+club_id,student_roll_number,category,name,membership_type,description,proof,approved
+CLB001,2023CS001,Technical,Coding Club,President,Club focused on competitive programming,certificate_url1,1
+CLB002,2023EE002,Cultural,Music Society,Member,University music ensemble,performance_video_url1,1
+CLB003,2023ME004,Sports,Athletics Club,Vice President,Track and field activities,team_photo_url1,1
+CLB004,2023CS003,Technical,AI Research Group,Secretary,Advanced AI/ML research group,project_demo_url1,1
+CLB005,2023CE005,Professional,Civil Engineering Society,Treasurer,Professional development society,membership_card_url1,1
+CLB006,2023CS007,Technical,Cybersecurity Club,President,Network security and ethical hacking group,competition_certificate_url1,1
+CLB007,2023EE006,Professional,IEEE Student Branch,Secretary,Electrical engineering professional chapter,membership_certificate_url1,1
+CLB008,2023ME008,Cultural,Dance Troupe,Member,Contemporary and classical dance group,recital_video_url1,1
+CLB009,2023CS010,Technical,Game Development Club,Treasurer,Video game design and development,game_demo_url1,1
+CLB010,2023CE009,Service,Community Outreach,Vice President,Social service and volunteering club,service_hours_document_url1,1
+CLB011,2023CS011,Technical,Robotics Club,President,Robotics design and competitions,robot_showcase_url1,1
+CLB012,2023EE012,Cultural,Photography Club,Member,Photography and visual arts society,portfolio_url1,1
+CLB013,2023ME013,Professional,ASME Chapter,Secretary,Mechanical engineering association,member_id_url1,1
+CLB014,2023CS015,Technical,Web Development Club,Treasurer,Web technologies and development group,website_project_url1,1
+CLB015,2023CE014,Environmental,Sustainability Club,President,Environmental awareness and campus initiatives,project_report_url1,1
+CLB016,2023CS019,Technical,Blockchain Society,Vice President,Cryptocurrency and blockchain technology group,project_documentation_url1,1
+CLB017,2023EE016,Sports,Badminton Club,Member,University badminton team,tournament_photo_url1,1
+CLB018,2023ME017,Cultural,Drama Society,Secretary,Theatrical performances and workshops,performance_program_url1,1
+CLB019,2023CS021,Technical,Data Science Club,Treasurer,Data analytics and visualization group,data_project_url1,1
+CLB020,2023CE018,Professional,Civil Engineering Association,Member,Industry networking and professional development,event_participation_url1,1
+CLB021,2023CS024,Technical,Open Source Club,President,Open source software contribution group,github_contributions_url1,1
+CLB022,2023EE025,Cultural,Film Society,Vice President,Film appreciation and short film making,short_film_url1,1
+CLB023,2023ME022,Sports,Swimming Club,Secretary,University swimming team,meet_results_url1,1
+CLB024,2023CS007,Technical,IoT Club,Member,Internet of things projects and workshops,project_demonstration_url1,1
+CLB025,2023CE023,Service,Campus Ambassadors,Treasurer,University representation and outreach program,ambassador_badge_url1,1
