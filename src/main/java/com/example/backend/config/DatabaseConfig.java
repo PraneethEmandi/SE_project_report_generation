@@ -10,7 +10,7 @@ public class DatabaseConfig {
     @Bean
     public DataSource getDataSource() {
         return DataSourceBuilder.create()
-                .url("jdbc:mysql://localhost:3306/SE_workingdata")
+                .url("jdbc:mysql://localhost:3306/selab")
                 .username("root")
                 .password("peace")
                 .driverClassName("com.mysql.cj.jdbc.Driver")
