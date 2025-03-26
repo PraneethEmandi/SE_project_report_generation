@@ -20,7 +20,8 @@ import AdministrationData from "./pages/AdministrationData";
 import QueryBuilder from "./pages/QueryBuilder";
 import QueryResults from "./pages/QueryResults";
 import NotFound from "./pages/NotFound";
-
+// import Dashboard2 from "./pages/Dashboard2";
+import PowerBIEmbedComponent from "./pages/PowerBIEmbedComponent";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -37,7 +38,8 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            
+            {/* <Route path="/dashboard2" element={<Dashboard2 />} /> */}
+            <Route path="/power-bi-embed" element={<PowerBIEmbedComponent />} />
             <Route path="/dashboard" element={
               <SidebarProvider>
                 <Dashboard />

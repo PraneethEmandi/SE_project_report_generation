@@ -218,10 +218,13 @@ const QueryBuilder = () => {
           <tr key={index} className="border border-gray-300">
             <td className="border border-gray-300 p-2 text-center">
               <input
-                type="checkbox"
-                checked={selectedRows.includes(row)}
-                onChange={() => handleRowSelection(row)}
-              />
+                      type="checkbox"
+                      checked={selectedRows.includes(row)}
+                      onChange={() => handleRowSelection(row)}
+                      title="Select row"
+                      aria-label="Select row"
+                      placeholder="Select row"
+                  />
             </td>
             {Object.values(row).map((value, idx) => (
               <td key={idx} className="border border-gray-300 p-2">
@@ -265,7 +268,11 @@ const QueryBuilder = () => {
         {showGraphOptions && queryResults.length > 0 && (
           <div className="mt-6">
             <h3 className="text-lg font-semibold">Select Graph Type:</h3>
+            <label htmlFor="graphType" className="block text-sm font-medium text-gray-700">
+              Graph Type
+            </label>
             <select
+              id="graphType"
               value={graphType}
               onChange={(e) => setGraphType(e.target.value)}
               className="w-full p-2 border rounded-md"
@@ -283,6 +290,7 @@ const QueryBuilder = () => {
               className="w-full p-2 border rounded-md"
               min="1"
               max={queryResults.length}
+              placeholder="Enter number of rows"
             />
 
             <h3 className="text-lg font-semibold mt-4">Select Graph Color:</h3>
@@ -295,7 +303,9 @@ const QueryBuilder = () => {
 
             {(graphType === "bar" || graphType === "line") && (
               <div className="mt-4 flex gap-4">
+                <label htmlFor="xAxisSelect" className="sr-only">Select X-Axis</label>
                 <select
+                  id="xAxisSelect"
                   value={xAxis}
                   onChange={(e) => setXAxis(e.target.value)}
                   className="w-1/2 p-2 border rounded-md"
@@ -308,6 +318,7 @@ const QueryBuilder = () => {
                   ))}
                 </select>
                 <select
+                  id="yAxisSelect"
                   value={yAxis}
                   onChange={(e) => setYAxis(e.target.value)}
                   className="w-1/2 p-2 border rounded-md"
