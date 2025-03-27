@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DashboardLayout from "@/components/DashboardLayout";
 import { Button } from "@/components/ui/button";
@@ -10,11 +10,14 @@ import Papa from "papaparse";
 import * as XLSX from "xlsx";
 import { jsPDF } from "jspdf";
 import autoTable from "jspdf-autotable";
-import { ResizableBox } from "react-resizable";
-import "react-resizable/css/styles.css";
+import GraphComponent from "./GraphComponent";
+import { v4 as uuidv4 } from "uuid";
+import { Responsive, WidthProvider } from "react-grid-layout";
 // import "jspdf-autotable";
 
-const QueryBuilder = () => {
+const Temp = () => {
+  const [graphs, setGraphs] = useState([]);
+  const ResponsiveGridLayout = WidthProvider(Responsive);
   const { toast } = useToast();
   const [query, setQuery] = useState("");
   const [charCount, setCharCount] = useState(0);
@@ -28,36 +31,10 @@ const QueryBuilder = () => {
   const [yAxis, setYAxis] = useState("");
   const [graphColor, setGraphColor] = useState("#3498db"); // Default color set to blue
   const [selectedRows, setSelectedRows] = useState<any[]>([]);
-  const [graphWidth, setGraphWidth] = useState(800);
-  const [graphHeight, setGraphHeight] = useState(600);
-  const [extraHeight, setExtraHeight] = useState(0);
   const handleQueryChange = (e) => {
     setQuery(e.target.value);
     setCharCount(e.target.value.length);
   };
-
-  // Ensure default values to prevent undefined errors
-  const safeQueryResults = Array.isArray(queryResults) ? queryResults : [];
-  const safeSelectedRows = Array.isArray(selectedRows) ? selectedRows : [];
-
-  // Extract x-axis labels safely
-  const xLabels = (
-    safeSelectedRows.length > 0 ? safeSelectedRows : safeQueryResults
-  )
-    .slice(0, numRows)
-    .map((row) => row?.[xAxis] ?? ""); // Default to empty string if undefined
-
-  // Adjust height dynamically based on label length
-  useEffect(() => {
-    if (xLabels.length === 0) return;
-
-    const maxLabelLength = Math.max(
-      ...xLabels.map((label) => label?.length ?? 0),
-      0
-    );
-    setExtraHeight(maxLabelLength > 10 ? 50 : 0); // Increase height only if needed
-  }, [xLabels]);
-
   const handleRowSelection = (row) => {
     setSelectedRows((prev) => {
       if (prev.includes(row)) {
@@ -122,6 +99,7 @@ const QueryBuilder = () => {
       const data = await response.json();
       if (response.ok) {
         setQueryResults(data.slice(0, numRows));
+        console.log(queryResults);
       } else {
         throw new Error(data.message || "Failed to run SQL query.");
       }
@@ -134,6 +112,39 @@ const QueryBuilder = () => {
     }
     setLoading(false);
   };
+  //
+  const generateGraphs = (data) => {
+    if (!data || data.length === 0) {
+      toast({
+        title: "No Data",
+        description: "No data available to generate graphs.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!xAxis || !yAxis || !(xAxis in data[0]) || !(yAxis in data[0])) {
+      toast({
+        title: "Invalid Selection",
+        description: "Make sure to select valid X and Y axes.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const newGraph = {
+      id: uuidv4(),
+      type: graphType,
+      xData: data.map((row) => row[xAxis]),
+      yData: data.map((row) => row[yAxis]),
+      color: graphColor,
+      layout: { x: 0, y: 0, w: 4, h: 4 },
+      title: `${graphType} graph of ${xAxis} vs ${yAxis}`,
+    };
+
+    setGraphs((prevGraphs) => [...prevGraphs, newGraph]);
+  };
+
   const downloadCSV = () => {
     const csv = Papa.unparse(queryResults);
     const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
@@ -152,7 +163,20 @@ const QueryBuilder = () => {
     XLSX.utils.book_append_sheet(workbook, worksheet, "Query Results");
     XLSX.writeFile(workbook, "query_results.xlsx");
   };
-
+  const openGraphGenerator = () => {
+    if (!queryResults || queryResults.length === 0) {
+      toast({
+        title: "No Data",
+        description: "No data available to generate graphs.",
+        variant: "destructive",
+      });
+      return;
+    }
+  
+    const queryResultsString = encodeURIComponent(JSON.stringify(queryResults));
+    window.open(`/graph-generator?data=${queryResultsString}`, "_blank");
+  };
+  
   const downloadPDF = () => {
     if (queryResults.length === 0) {
       alert("No data available to export!");
@@ -324,182 +348,63 @@ const QueryBuilder = () => {
                 Download PDF
               </button> */}
             </div>
-            <Button
-              onClick={() => setShowGraphOptions(true)}
-              className="w-full mt-4 bg-green-600 hover:bg-green-800"
-            >
-              Generate Graph
-            </Button>
           </div>
         )}
+         <Button onClick={openGraphGenerator} className="bg-blue-500 hover:bg-blue-700">
+        Generate Dashboard
+      </Button>
+        {/* {graphs.length > 0 && ( */}
+        <div className="mt-6">
+          <select
+            value={graphType}
+            onChange={(e) => setGraphType(e.target.value)}
+            className="p-2 bg-gray-100 rounded-md"
+          >
+            <option value="bar">Bar Graph</option>
+            <option value="line">Line Graph</option>
+            <option value="pie">Pie Chart</option>
+          </select>
+          <select value={xAxis} onChange={(e) => setXAxis(e.target.value)}>
+            <option value="">Select X-Axis</option>
+            {queryResults.length > 0 &&
+              Object.keys(queryResults[0]).map((key) => (
+                <option key={key} value={key}>
+                  {key}
+                </option>
+              ))}
+          </select>
 
-        {showGraphOptions && queryResults.length > 0 && (
-          <div className="mt-6">
-            <h3 className="text-lg font-semibold">Select Graph Type:</h3>
-            <label
-              htmlFor="graphType"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Graph Type
-            </label>
-            <select
-              id="graphType"
-              value={graphType}
-              onChange={(e) => setGraphType(e.target.value)}
-              className="w-full p-2 border rounded-md"
-            >
-              <option value="bar">Bar Chart</option>
-              <option value="line">Line Chart</option>
-              <option value="pie">Pie Chart</option>
-            </select>
+          <select value={yAxis} onChange={(e) => setYAxis(e.target.value)}>
+            <option value="">Select Y-Axis</option>
+            {queryResults.length > 0 &&
+              Object.keys(queryResults[0]).map((key) => {
+                console.log(yAxis); // Log inside the function body
+                return (
+                  <option key={key} value={key}>
+                    {key}
+                  </option>
+                );
+              })}
+          </select>
 
-            <h3 className="text-lg font-semibold mt-4">Number of Rows:</h3>
-            <input
-              type="number"
-              value={numRows}
-              onChange={(e) => setNumRows(Number(e.target.value))}
-              className="w-full p-2 border rounded-md"
-              min="1"
-              max={queryResults.length}
-              placeholder="Enter number of rows"
-            />
+          <input
+            type="color"
+            value={graphColor}
+            onChange={(e) => setGraphColor(e.target.value)}
+            className="p-2 bg-gray-100 rounded-md"
+          />
+          <Button
+            onClick={() => generateGraphs(queryResults)}
+            className="bg-green-500 hover:bg-green-700"
+          >
+            Generate Graph
+          </Button>
 
-            <h3 className="text-lg font-semibold mt-4">Select Graph Color:</h3>
-            <input
-              type="color"
-              value={graphColor}
-              onChange={(e) => setGraphColor(e.target.value)}
-              className="w-full p-2 border rounded-md"
-            />
-
-            {(graphType === "bar" || graphType === "line") && (
-              <div className="mt-4 flex gap-4">
-                <label htmlFor="xAxisSelect" className="sr-only">
-                  Select X-Axis
-                </label>
-                <select
-                  id="xAxisSelect"
-                  value={xAxis}
-                  onChange={(e) => setXAxis(e.target.value)}
-                  className="w-1/2 p-2 border rounded-md"
-                >
-                  <option value="">Select X-Axis</option>
-                  {Object.keys(queryResults[0]).map((col) => (
-                    <option key={col} value={col}>
-                      {col}
-                    </option>
-                  ))}
-                </select>
-                <select
-                  id="yAxisSelect"
-                  value={yAxis}
-                  onChange={(e) => setYAxis(e.target.value)}
-                  className="w-1/2 p-2 border rounded-md"
-                >
-                  <option value="">Select Y-Axis</option>
-                  {Object.keys(queryResults[0]).map((col) => (
-                    <option key={col} value={col}>
-                      {col}
-                    </option>
-                  ))}
-                </select>
-                <label className="mr-2">Width:</label>
-                <input
-                  type="number"
-                  value={graphWidth}
-                  onChange={(e) => setGraphWidth(Number(e.target.value))}
-                  className="border p-1 mr-4"
-                />
-                <label className="mr-2">Height:</label>
-                <input
-                  type="number"
-                  value={graphHeight}
-                  onChange={(e) => setGraphHeight(Number(e.target.value))}
-                  className="border p-1"
-                />
-              </div>
-            )}
-            <ResizableBox
-              width={graphWidth}
-              height={graphHeight + extraHeight} // Adjust height dynamically
-              axis="both"
-              minConstraints={[400, 300]}
-              maxConstraints={[1200, 800]}
-              onResizeStop={(event, { size }) => {
-                setGraphWidth(size.width);
-                setGraphHeight(size.height);
-              }}
-              className="border rounded-lg p-2 relative"
-            >
-              {/* Graph */}
-              <Plot
-                className="mt-2"
-                data={
-                  graphType === "bar"
-                    ? [
-                        {
-                          x: xLabels,
-                          y: (safeSelectedRows.length > 0
-                            ? safeSelectedRows
-                            : safeQueryResults
-                          )
-                            .slice(0, numRows)
-                            .map((row) => row?.[yAxis] ?? 0),
-                          type: "bar",
-                          marker: { color: graphColor },
-                        },
-                      ]
-                    : graphType === "line"
-                    ? [
-                        {
-                          x: xLabels,
-                          y: (safeSelectedRows.length > 0
-                            ? safeSelectedRows
-                            : safeQueryResults
-                          )
-                            .slice(0, numRows)
-                            .map((row) => row?.[yAxis] ?? 0),
-                          type: "scatter",
-                          mode: "lines+markers",
-                          line: { color: graphColor },
-                          marker: { color: graphColor },
-                        },
-                      ]
-                    : [
-                        {
-                          values: (safeSelectedRows.length > 0
-                            ? safeSelectedRows
-                            : safeQueryResults
-                          )
-                            .slice(0, numRows)
-                            .map((row) => row?.[yAxis] ?? 0),
-                          labels: xLabels,
-                          type: "pie",
-                          marker: { colors: [graphColor] },
-                        },
-                      ]
-                }
-                layout={{
-                  title: "Generated Graph",
-                  width: graphWidth,
-                  height: graphHeight + extraHeight, // Use dynamic height
-                  margin: { b: 100 }, // Extra space for rotated labels
-                  xaxis: {
-                    tickangle: xLabels.length > 5 ? -45 : 0, // Rotate if labels are many
-                    automargin: true,
-                  },
-                  autosize: true,
-                  responsive: true,
-                  showlegend: false,
-                  displaylogo: false
-                }}
-              />
-            </ResizableBox>
-          </div>
-        )}
+          <GraphComponent graphs={graphs} setGraphs={setGraphs} />
+        </div>
       </div>
     </DashboardLayout>
   );
 };
 
-export default QueryBuilder;
+export default Temp;
