@@ -18,7 +18,7 @@ const Sidebar = () => {
 
   const menuItems = [
     { path: '/dashboard', label: 'Home', icon: <Home size={20} /> },
-    { path: '/reports', label: 'Reports', icon: <FileBarChart2 size={20} /> },
+    { path: '/temp', label: 'Dashboard Builder', icon: <FileBarChart2 size={20} /> },
     { path: '/query-builder', label: 'Query Builder', icon: <Code2 size={20} /> },
     { path: '/placement-data', label: 'Placement Data', icon: <Briefcase size={20} /> },
     { path: '/events-data', label: 'Events Data', icon: <Calendar size={20} /> },
