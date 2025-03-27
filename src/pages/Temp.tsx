@@ -172,11 +172,11 @@ const Temp = () => {
       });
       return;
     }
-  
+
     const queryResultsString = encodeURIComponent(JSON.stringify(queryResults));
     window.open(`/graph-generator?data=${queryResultsString}`, "_blank");
   };
-  
+
   const downloadPDF = () => {
     if (queryResults.length === 0) {
       alert("No data available to export!");
@@ -243,6 +243,83 @@ const Temp = () => {
       details: "Student sports participation (sport_name, category, awards).",
     },
   ];
+  const ExampleQueries = [
+    {
+      input:
+        "Analyze the number of students placed and interning across different departments with average CTC and stipend.",
+      output: `SELECT s.department,
+    COUNT(DISTINCT p.student_roll_number) AS placed_students,
+    AVG(p.ctc) AS average_ctc,
+    COUNT(DISTINCT i.student_roll_number) AS intern_students,
+    AVG(i.stipend) AS average_stipend
+FROM students_data s
+LEFT JOIN placements_data p ON s.roll_number = p.student_roll_number
+LEFT JOIN internship_data i ON s.roll_number = i.student_roll_number
+GROUP BY s.department;
+;`,
+      graphs: [
+        "Bar Chart: Department-wise count of placed students and interns.",
+        "Line Graph: Trend of average CTC and stipend per department.",
+        "Pie Chart: Percentage distribution of placed vs. interned students.",
+      ],
+    },
+    {
+      input:
+        "Find the participation trends and awards won in technical, cultural, and sports events by department.",
+      output: `SELECT students_data.department, 
+COUNT(DISTINCT technical_events_data.event_name) AS total_technical_events, 
+COUNT(DISTINCT cultural_events_data.event_name) AS total_cultural_events, 
+COUNT(DISTINCT sports_events.sport_name) AS total_sports_events, 
+COUNT(technical_events_data.awards) + COUNT(cultural_events_data.awards) + COUNT(sports_events.awards) AS total_awards_won
+FROM students_data
+LEFT JOIN technical_events_data ON students_data.roll_number = technical_events_data.event_name
+LEFT JOIN cultural_events_data ON students_data.roll_number = cultural_events_data.event_name
+LEFT JOIN sports_events ON students_data.roll_number = sports_events.sport_name
+GROUP BY students_data.department;`,
+      graphs: [
+        "Stacked Bar Chart: Department-wise breakdown of technical, cultural, and sports event participation.",
+        "Pie Chart: Percentage of students participating in each category.",
+        "Bar Chart: Comparison of event participation vs. awards won.",
+      ],
+    },
+    {
+      input:
+        "Show the number of students placed and interning in different companies with highest offers.",
+      output: `SELECT placements_data.company, 
+COUNT(DISTINCT placements_data.company) AS total_placed_students, 
+COUNT(DISTINCT internship_data.company) AS total_interns, 
+AVG(placements_data.ctc) AS avg_ctc, 
+AVG(internship_data.stipend) AS avg_stipend
+FROM placements_data
+LEFT JOIN internship_data ON placements_data.company = internship_data.company
+GROUP BY placements_data.company
+ORDER BY total_placed_students DESC
+LIMIT 10;`,
+      graphs: [
+        "Bar Chart: Top 10 companies with the highest placements and internships.",
+        "Line Chart: Trend of average CTC vs. stipend by company.",
+        "Pie Chart: Distribution of placement offers among top companies.",
+      ],
+    },
+    {
+      input:
+        "Compare student research publication trends with society/club memberships by department.",
+      output: `SELECT students_data.department, 
+COUNT(DISTINCT research_papers.title) AS total_research_papers, 
+COUNT(DISTINCT societies_clubs.name) AS total_club_memberships, 
+COUNT(DISTINCT societies_clubs.membership_type) AS total_club_types
+FROM students_data
+LEFT JOIN research_papers ON students_data.roll_number = research_papers.title
+LEFT JOIN societies_clubs ON students_data.roll_number = societies_clubs.name
+GROUP BY students_data.department;`,
+      graphs: [
+        "Bar Chart: Research papers published vs. club memberships by department.",
+        "Pie Chart: Proportion of students involved in research vs. clubs.",
+        "Line Graph: Growth of research publications over time.",
+      ],
+    },
+  ];
+
   return (
     <DashboardLayout title="Build Your Query">
       <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-sm">
@@ -254,6 +331,28 @@ const Temp = () => {
             </li>
           ))}
         </ul>
+        <h2 className="text-xl font-bold mb-4">Example Queries</h2>
+<ul className="mb-4 bg-gray-100 p-4 rounded-md">
+  {ExampleQueries.map((query) => (
+    <li key={query.input} className="mb-6">
+      <h3 className="font-bold text-lg">📝 Input:</h3>
+      <p className="mb-2">{query.input}</p>
+
+      <h3 className="font-bold text-lg">📜 Output (SQL Query):</h3>
+      <pre className="p-2 bg-gray-200 rounded-md overflow-x-auto whitespace-pre-wrap break-words">
+        {query.output}
+      </pre>
+
+      <h3 className="font-bold text-lg">📊 Example Dashboard:</h3>
+      <ul className="list-disc ml-4">
+        {query.graphs.map((graph) => (
+          <li key={graph}>{graph}</li>
+        ))}
+      </ul>
+    </li>
+  ))}
+</ul>
+
         <Textarea
           placeholder="e.g. Placement statistics of 5 companies"
           value={query}
@@ -291,10 +390,10 @@ const Temp = () => {
             <table className="w-full border-collapse border border-gray-300 mt-2">
               <thead>
                 <tr className="bg-gray-200">
-                  <th className="border border-gray-300 p-2 text-center">
+                  {/* <th className="border border-gray-300 p-2 text-center">
                     Select
                   </th>{" "}
-                  {/* Checkbox Header */}
+                  */}
                   {Object.keys(queryResults[0]).map((key) => (
                     <th
                       key={key}
@@ -308,7 +407,7 @@ const Temp = () => {
               <tbody>
                 {queryResults.map((row, index) => (
                   <tr key={index} className="border border-gray-300">
-                    <td className="border border-gray-300 p-2 text-center">
+                    {/* <td className="border border-gray-300 p-2 text-center">
                       <input
                         type="checkbox"
                         checked={selectedRows.includes(row)}
@@ -317,7 +416,7 @@ const Temp = () => {
                         aria-label="Select row"
                         placeholder="Select row"
                       />
-                    </td>
+                    </td> */}
                     {Object.values(row).map((value, idx) => (
                       <td key={idx} className="border border-gray-300 p-2">
                         {value}
@@ -350,11 +449,14 @@ const Temp = () => {
             </div>
           </div>
         )}
-         <Button onClick={openGraphGenerator} className="bg-blue-500 hover:bg-blue-700">
-        Generate Dashboard
-      </Button>
+        <Button
+          onClick={openGraphGenerator}
+          className="bg-red-500 hover:bg-red-700 mt-2 mx-auto block w-full"
+        > 
+          Generate Dashboard
+        </Button>
         {/* {graphs.length > 0 && ( */}
-        <div className="mt-6">
+        {/* <div className="mt-6">
           <select
             value={graphType}
             onChange={(e) => setGraphType(e.target.value)}
@@ -401,7 +503,7 @@ const Temp = () => {
           </Button>
 
           <GraphComponent graphs={graphs} setGraphs={setGraphs} />
-        </div>
+        </div> */}
       </div>
     </DashboardLayout>
   );

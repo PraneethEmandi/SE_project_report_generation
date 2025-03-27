@@ -610,7 +610,7 @@ const GraphComponent = ({ graphs, setGraphs }) => {
       const updatedSizes = { ...prev };
       graphs.forEach((graph) => {
         if (!updatedSizes[graph.id]) {
-          updatedSizes[graph.id] = { width: 900, height: 650 };
+          updatedSizes[graph.id] = { width: 450, height: 300 };
         }
       });
       return updatedSizes;
@@ -635,20 +635,26 @@ const GraphComponent = ({ graphs, setGraphs }) => {
   };
 
   const downloadDashboard = () => {
+    const button = document.getElementById("download-btn");
+    button.style.display = "none"; // Hide the button before taking screenshot
+  
     html2canvas(document.getElementById("dashboard"), { scale: 2 }).then(
       (canvas) => {
         const link = document.createElement("a");
         link.href = canvas.toDataURL("image/png");
         link.download = "dashboard.png";
         link.click();
+        
+        button.style.display = "block"; // Restore the button after downloading
       }
     );
   };
+  
 
   return (
     <div
       style={{
-        minHeight: graphs.length * 750,
+        // minHeight: graphs.length * 750,
         padding: "20px",
         backgroundColor: "#f8f9fa",
         borderRadius: "10px",
@@ -656,11 +662,13 @@ const GraphComponent = ({ graphs, setGraphs }) => {
       id="dashboard"
     >
       <button
-        onClick={downloadDashboard}
-        className="bg-blue-600 text-white p-3 rounded-lg mb-4 shadow-md hover:bg-blue-700"
-      >
-        Download Dashboard
-      </button>
+  id="download-btn"
+  onClick={downloadDashboard}
+  className="bg-blue-600 text-white p-3 rounded-lg mb-4 shadow-md hover:bg-blue-700"
+>
+  Download Dashboard
+</button>
+
       <ResponsiveGridLayout
         className="layout"
         layouts={{

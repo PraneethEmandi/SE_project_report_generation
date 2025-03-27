@@ -219,6 +219,29 @@ const QueryBuilder = () => {
       details: "Student sports participation (sport_name, category, awards).",
     },
   ];
+  const ExampleQueries = [
+    {
+        input: "Generate a report of all students who participated in technical events with their event details.",
+        output: `SELECT students_data.roll_number, students_data.name, technical_events_data.event_name, technical_events_data.event_date, technical_events_data.location 
+                 FROM students_data 
+                 JOIN technical_events_data ON students_data.roll_number = technical_events_data.student_roll_number;`
+    },
+    {
+        input: "Show a bar chart of the number of students participating in each category of cultural events.",
+        output: `SELECT category, COUNT(student_roll_number) 
+                 FROM cultural_events_data 
+                 GROUP BY category;`
+    },
+    {
+        input: "Get the top 5 companies that provided the highest placement offers.",
+        output: `SELECT company, COUNT(placement_id) AS total_offers 
+                 FROM placements_data 
+                 GROUP BY company 
+                 ORDER BY total_offers DESC 
+                 LIMIT 5;`
+    }
+];
+
   return (
     <DashboardLayout title="Build Your Query">
       <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-sm">
@@ -227,6 +250,16 @@ const QueryBuilder = () => {
           {databaseSchema.map((table) => (
             <li key={table.table} className="mb-2">
               <strong>{table.name}:</strong> {table.details}
+            </li>
+          ))}
+        </ul>
+        <h2 className="text-xl font-bold mb-4">Example Queries</h2>
+        <ul className="mb-4 bg-gray-100 p-4 rounded-md">
+          {ExampleQueries.map((query) => (
+            <li key={query.input} className="mb-2">
+              <strong>Input:</strong> {query.input}
+              <br />
+              <strong>Output:</strong> {query.output}
             </li>
           ))}
         </ul>

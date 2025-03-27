@@ -44,7 +44,7 @@ const GraphGenerator = ({ queryResults }: { queryResults: any[] }) => {
 
   return (
     <div className="max-w-100% mx-auto p-6 bg-white shadow-lg rounded-lg mt-6">
-      <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">Graph Generator</h1>
+      <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">Dashboard Generator</h1>
       <div className="flex flex-wrap gap-4 justify-center items-center mb-4">
         <select
           value={graphType}
