@@ -10,9 +10,9 @@ public class DatabaseConfig {
     @Bean
     public DataSource getDataSource() {
         return DataSourceBuilder.create()
-                .url("jdbc:mysql://localhost:3306/selab")
+                .url("jdbc:mysql://localhost:3306/se_lab")
                 .username("root")
-                .password("peace")
+                .password("vicky@007")
                 .driverClassName("com.mysql.cj.jdbc.Driver")
                 .build();
     }
